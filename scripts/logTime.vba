@@ -16,10 +16,6 @@ Sub clockIn()
   Set timeStart2 = Range("B7:H7")
   Set timeEnd2 = Range("B8:H8")
 
-  ' possible feature
-  'Dim columnDate As Range
-  'Set columnDate = Range("B3:H3")
-
   Dim columnIndex As Integer
   columnIndex = 1
   
