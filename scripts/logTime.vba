@@ -50,26 +50,31 @@ Sub clockIn()
     proceed = False
   End If
 
-  ' change the column in the range to the correct day
-  Set timeStart1 = timeStart1.Columns(columnIndex)
-  Set timeEnd1 = timeEnd1.Columns(columnIndex)
-  Set timeStart2 = timeStart2.Columns(columnIndex)
-  Set timeEnd2 = timeEnd2.Columns(columnIndex)
+  ' Not best way to do this, but unsure how to break from a sub
+  If proceed = True Then
 
-  ' Test if the value is cell is blank/empty, and mark time for this correct slot
-  If IsEmpty(timeStart1) = True And proceed = True Then
-    MsgBox "Marking time start 1"
-    timeStart1.Value = timeNow
-  ElseIf IsEmpty(timeEnd1) = True And proceed = True Then
-    MsgBox "Marking time end 1"
-    timeEnd1.Value = timeNow
-  ElseIf IsEmpty(timeStart2) = True And proceed = True Then
-    MsgBox "Marking time start 2"
-    timeStart2.Value = timeNow
-  ElseIf IsEmpty(timeEnd2) = True And proceed = True Then
-    MsgBox "Marking time end 2"
-    timeEnd2.Value = timeNow
-  Else
-    MsgBox "No open spaces. Use bonus time"
+    ' change the column in the range to the correct day
+    Set timeStart1 = timeStart1.Columns(columnIndex)
+    Set timeEnd1 = timeEnd1.Columns(columnIndex)
+    Set timeStart2 = timeStart2.Columns(columnIndex)
+    Set timeEnd2 = timeEnd2.Columns(columnIndex)
+
+    ' Test if the value is cell is blank/empty, and mark time for this correct slot
+    If IsEmpty(timeStart1) = True And proceed = True Then
+      MsgBox "Marking time start 1"
+      timeStart1.Value = timeNow
+    ElseIf IsEmpty(timeEnd1) = True And proceed = True Then
+      MsgBox "Marking time end 1"
+      timeEnd1.Value = timeNow
+    ElseIf IsEmpty(timeStart2) = True And proceed = True Then
+      MsgBox "Marking time start 2"
+      timeStart2.Value = timeNow
+    ElseIf IsEmpty(timeEnd2) = True And proceed = True Then
+      MsgBox "Marking time end 2"
+      timeEnd2.Value = timeNow
+    Else
+      MsgBox "No open spaces. Use bonus time"
+    End If
   End If
+
 End Sub
