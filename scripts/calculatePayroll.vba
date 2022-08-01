@@ -16,8 +16,14 @@ Sub calculatePayroll()
     Set netTime = Range("C7")
     Set netPay = Range("C8")
 
-    netTime.Value = 24 * (timeEnd.Value - timeStart.Value)
-    netPay.Value = netTime * 25
-
+    ' Test if the value is cell is blank/empty, and mark time for this correct slot
+    If IsEmpty(timeStart) = True Then
+      MsgBox "Begin logging time before running payroll"
+    ElseIf IsEmpty(timeEnd) = True Then
+      MsgBox "End logging time before running payroll"
+    Else
+      netTime.Value = 24 * (timeEnd.Value - timeStart.Value)
+      netPay.Value = netTime * 25
+    End If
   End If
 End Sub
