@@ -1,80 +1,42 @@
 Sub clockIn()
 
   ' init and assign date time objects
-  Dim dateNow
-  Dim timeNow
+  Dim dateNow, timeNow, weekdayIndex, weekdayNow
   dateNow = Date
   timeNow = Now
 
-  Dim timeStart1 As Range
-  Dim timeEnd1 As Range
-  Dim timeStart2 As Range
-  Dim timeEnd2 As Range
+  ' set the weekday
+  weekdayIndex = Weekday(dateNow)
+  weekdayNow = WeekdayName(weekdayIndex, False)
 
-  Set timeStart1 = Range("B5:H5")
-  Set timeEnd1 = Range("B6:H6")
-  Set timeStart2 = Range("B7:H7")
-  Set timeEnd2 = Range("B8:H8")
+  Dim timeDate As Range
+  Dim timeWeekDay As Range
+  Dim timeStart As Range
+  Dim timeEnd As Range
 
-  Dim columnIndex As Integer
-  columnIndex = 1
-
+  Set timeDate = Range("C3")
+  Set timeWeekDay = Range("C4")
+  Set timeStart = Range("C5")
+  Set timeEnd = Range("C6")
+  
   ' if date is available
   Dim proceed As Boolean
   proceed = True
   
-  ' Assign correct range based on day
-  If Range("B3") = dateNow Then
-    MsgBox "Log time for Sunday?"
-    columnIndex = 1
-  ElseIf Range("C3") = dateNow Then
-    MsgBox "Log time for Monday?"
-    columnIndex = 2
-  ElseIf Range("D3") = dateNow Then
-    MsgBox "Log time for Tuesday?"
-    columnIndex = 3
-  ElseIf Range("E3") = dateNow Then
-    MsgBox "Log time for Wednesday"
-    columnIndex = 4
-  ElseIf Range("F3") = dateNow Then
-    MsgBox "Log time for Thursday?"
-    columnIndex = 5
-  ElseIf Range("G3") = dateNow Then
-    MsgBox "Log time for Friday?"
-    columnIndex = 6
-  ElseIf Range("H3") = dateNow Then
-    MsgBox "Log time for Saturday?"
-    columnIndex = 7
+  MsgBox "Log time?"
+
+  timeDate.Value = dateNow
+  timeWeekDay.Value = weekdayNow
+
+  ' Test if the value is cell is blank/empty, and mark time for this correct slot
+  If IsEmpty(timeStart) = True And proceed = True Then
+    MsgBox "Marking time start 1"
+    timeStart.Value = timeNow
+  ElseIf IsEmpty(timeEnd) = True And proceed = True Then
+    MsgBox "Marking time end 1"
+    timeEnd.Value = timeNow
   Else
-    MsgBox ("Cannot pick correct date column")
-    proceed = False
-  End If
-
-  ' Not best way to do this, but unsure how to break from a sub
-  If proceed = True Then
-
-    ' change the column in the range to the correct day
-    Set timeStart1 = timeStart1.Columns(columnIndex)
-    Set timeEnd1 = timeEnd1.Columns(columnIndex)
-    Set timeStart2 = timeStart2.Columns(columnIndex)
-    Set timeEnd2 = timeEnd2.Columns(columnIndex)
-
-    ' Test if the value is cell is blank/empty, and mark time for this correct slot
-    If IsEmpty(timeStart1) = True And proceed = True Then
-      MsgBox "Marking time start 1"
-      timeStart1.Value = timeNow
-    ElseIf IsEmpty(timeEnd1) = True And proceed = True Then
-      MsgBox "Marking time end 1"
-      timeEnd1.Value = timeNow
-    ElseIf IsEmpty(timeStart2) = True And proceed = True Then
-      MsgBox "Marking time start 2"
-      timeStart2.Value = timeNow
-    ElseIf IsEmpty(timeEnd2) = True And proceed = True Then
-      MsgBox "Marking time end 2"
-      timeEnd2.Value = timeNow
-    Else
-      MsgBox "No open spaces. Use bonus time"
-    End If
+    MsgBox "Export this data before logging more time."
   End If
 
 End Sub
