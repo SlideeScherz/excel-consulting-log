@@ -1,4 +1,4 @@
-Sub clockIn()
+Sub logTime()
 
   ' init and assign date time objects
   Dim dateNow, timeNow, weekdayIndex, weekdayNow
@@ -14,26 +14,22 @@ Sub clockIn()
   Dim timeStart As Range
   Dim timeEnd As Range
 
-  Set timeDate = Range("C3")
-  Set timeWeekDay = Range("C4")
-  Set timeStart = Range("C5")
-  Set timeEnd = Range("C6")
+  Set timeDate = Range("A3")
+  Set timeWeekDay = Range("B3")
+  Set timeStart = Range("C3")
+  Set timeEnd = Range("D3")
   
-  ' if date is available
-  Dim proceed As Boolean
-  proceed = True
-  
-  MsgBox "Log time?"
-
+  ' confirm execution
+  Dim feedback
+  feedback = MsgBox("Log time?", vbYesNo + vbQuestion, "Proceed?")
+    
   timeDate.Value = dateNow
   timeWeekDay.Value = weekdayNow
 
   ' Test if the value is cell is blank/empty, and mark time for this correct slot
-  If IsEmpty(timeStart) = True And proceed = True Then
-    MsgBox "Marking time start 1"
+  If IsEmpty(timeStart) = True And feedback = vbYes Then
     timeStart.Value = timeNow
-  ElseIf IsEmpty(timeEnd) = True And proceed = True Then
-    MsgBox "Marking time end 1"
+  ElseIf IsEmpty(timeEnd) = True And feedback = vbYes Then
     timeEnd.Value = timeNow
   Else
     MsgBox "Export this data before logging more time."

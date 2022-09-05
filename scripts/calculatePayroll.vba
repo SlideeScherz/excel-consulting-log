@@ -11,10 +11,10 @@ Sub calculatePayroll()
     Dim netTime As Range
     Dim netPay As Range
   
-    Set timeStart = Range("C5")
-    Set timeEnd = Range("C6")
-    Set netTime = Range("C7")
-    Set netPay = Range("C8")
+    Set timeStart = Range("C3")
+    Set timeEnd = Range("D3")
+    Set netTime = Range("E3")
+    Set netPay = Range("F3")
 
     ' Test if the value is cell is blank/empty, and mark time for this correct slot
     If IsEmpty(timeStart) = True Then
