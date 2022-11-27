@@ -10,10 +10,8 @@ Sub calculatePayroll()
     Exit Sub
   End If  
 
-  Set timeStart = Range("C3")
-  Set timeEnd = Range("D3")
-  Set netTime = Range("E3")
-  Set netPay = Range("F3")
+  ' init constants
+  globals.init
 
   ' Test if the value is cell is blank/empty, and mark time for this correct slot
   If IsEmpty(timeStart) = True Then

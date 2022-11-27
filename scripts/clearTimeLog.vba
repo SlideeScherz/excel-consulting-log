@@ -2,7 +2,7 @@ Option Explicit
 
 Sub clearTimeLog()
 
-' confirm execution
+  ' confirm execution
   Dim feedback
   feedback = MsgBox("Are you sure you want to clear?", vbYesNo + vbQuestion, "Proceed?")
 
@@ -10,14 +10,8 @@ Sub clearTimeLog()
     Exit Sub
   End If  
 
-  Set timeDate = Range("A3")
-  Set timeWeekDay = Range("B3")
-  Set timeStart = Range("C3")
-  Set timeEnd = Range("D3")
-  Set netTime = Range("E3")
-  Set netPay = Range("F3")
-  Set goals = Range("G3")
-  Set accomplished = Range("H3")
+  ' init constants
+  globals.init
   
   timeDate.Value = ""
   timeWeekDay.Value = ""
