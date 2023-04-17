@@ -6,7 +6,7 @@ Sub createEntry()
 
   ' confirm execution
   Dim feedback
-  feedback = MsgBox("Calculate time and pay?", vbYesNo + vbQuestion, "Proceed?")
+  feedback = MsgBox("Create entry?", vbYesNo + vbQuestion, "Confirm")
     
   If feedback <> vbYes Then
     Exit Sub

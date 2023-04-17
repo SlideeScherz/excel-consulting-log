@@ -4,7 +4,7 @@ Sub logTime()
 
   ' confirm execution
   Dim feedback
-  feedback = MsgBox("Log time?", vbYesNo + vbQuestion, "Proceed?")
+  feedback = MsgBox("Log time?", vbYesNo + vbQuestion, "Confirm")
 
   If feedback <> vbYes Then 
     Exit Sub

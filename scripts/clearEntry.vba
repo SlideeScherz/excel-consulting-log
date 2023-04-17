@@ -4,7 +4,7 @@ Sub clearEntry()
 
   ' confirm execution
   Dim feedback
-  feedback = MsgBox("Are you sure you want to clear?", vbYesNo + vbQuestion, "Proceed?")
+  feedback = MsgBox("Clear this entry?", vbYesNo + vbQuestion, "Confirm")
 
   If feedback <> vbYes Then
     Exit Sub
