@@ -2,6 +2,8 @@ Option Explicit
 
 Sub createEntry()
 
+  Public Const DAY_HOURS As Integer = 24
+
   ' confirm execution
   Dim feedback
   feedback = MsgBox("Calculate time and pay?", vbYesNo + vbQuestion, "Proceed?")
@@ -19,7 +21,7 @@ Sub createEntry()
   ElseIf IsEmpty(timeEnd) = True Then
     MsgBox "End logging time before running payroll"
   Else
-    netTime.Value = 24 * (timeEnd.Value - timeStart.Value)
-    netPay.Value = netTime * 25
+    netTime.Value = DAY_HOURS * (timeEnd.Value - timeStart.Value)
+    netPay.Value = netTime * BILLING_RATE
   End If
 End Sub

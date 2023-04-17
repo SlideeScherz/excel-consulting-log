@@ -10,6 +10,7 @@ Public goals As Range
 Public accomplished As Range
 Public timeStampButton as Button
 Public createEntryButton as Button
+Public Const BILLING_RATE As Integer = 25
 
 Public Sub init()
   Set timeDate = Range("A2")
@@ -21,5 +22,5 @@ Public Sub init()
   Set goals = Range("G2")
   Set accomplished = Range("H2")
   Set timeStampButton = ActiveSheet.Buttons("timeStampButton")
-  'Set createEntryButton = ActiveSheet.Buttons("createEntryButton")
+  Set createEntryButton = ActiveSheet.Buttons("createEntryButton")
 End Sub  
