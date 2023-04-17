@@ -1,6 +1,6 @@
 Option Explicit
 
-Sub calculatePayroll()
+Sub createEntry()
 
   ' confirm execution
   Dim feedback

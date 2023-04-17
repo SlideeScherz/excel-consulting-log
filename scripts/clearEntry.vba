@@ -1,6 +1,6 @@
 Option Explicit
 
-Sub clearTimeLog()
+Sub clearEntry()
 
   ' confirm execution
   Dim feedback
@@ -21,5 +21,6 @@ Sub clearTimeLog()
   netPay.Value = ""
   goals.Value = ""
   accomplished.Value = ""
+  timeStampButton.Caption = "Clock In"
 
 End Sub  

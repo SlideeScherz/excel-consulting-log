@@ -35,10 +35,13 @@ Sub logTime()
   ' Test if the value is cell is blank/empty, and mark time for this correct slot
   If IsEmpty(timeStart) = True Then
     timeStart.Value = timeNow
+    timeStampButton.Caption = "Clock Out"
+    'createEntryButton.Enabled = False
     sessionNotes = Application.InputBox(prompt := "Goals", type := 2)
     goals.Value = sessionNotes
   ElseIf IsEmpty(timeEnd) = True Then
     timeEnd.Value = timeNow
+    'createEntryButton.Enabled = True
     sessionNotes = Application.InputBox(prompt := "Accomplished", type := 2)
     accomplished.Value = sessionNotes
   Else
